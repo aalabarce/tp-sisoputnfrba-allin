@@ -1,0 +1,562 @@
+/*
+ * orquestador.c
+ *
+ *  Created on: 05/10/2013
+ *      Author: utnso
+ */
+#include "orquestador.h"
+#include "planificador.h"
+//#include "Personaje.h"
+
+int main(int argc, char* argv[]){
+        /*leo por parametro del programa el archivo config*/
+                char * path = argv[1];
+                if (argc != 4) {
+                        printf("plataforma -> Sintaxis correcta: plataforma rutaConfig rutaExeKoopa rutaConfigKoopa\n");
+                        exit(1);
+                }
+
+                struct stat buffer;
+                if (stat(argv[1], &buffer) == -1) {
+                        printf("Archivo incorrecto.\n");
+                        exit(1);
+                }
+
+                koopa.pathKoopa = argv[2];
+                koopa.archivoLeeKoopa = argv[3];
+
+/*----------------------     Empieza el main ---------------------------------------*/
+
+        //loggerOrquestador = log_create("orquestador.log", "ORQUESTADOR", true, LOG_LEVEL_TRACE);      TODO futuroLogger
+         //Inicializo. Va a mostrar tambien en pantalla lo que guarde en los archivos
+
+        orquestador = crearOrquestador(path);
+
+        // log_info(loggerOrquestador, "Orquestador creado correctamente."); TODO futuroLogger
+
+        printf("Orquestador creado correctamente\n");
+
+        crearServidor(socket_ip(orquestador->direccionIp), socket_puerto(orquestador->direccionIp));
+
+        // epoll_agregarFdInotify(orquestador->fdOrquestadorEpoll, orquestador->inotifyFd);
+        /* epoll_agregarFdInotify esta implementada en socket.c */
+
+        printf("Escuchando las conexiones entrantes...\n");
+        //log_info(loggerOrquestador, "Escuchando las conexiones entrantes..."); TODO
+
+        // Escuchar nuevas conexiones
+        while(1){
+                epoll_escucharGeneral(orquestador->fdOrquestadorEpoll, orquestador->fdOrquestadorServer, accionNuevaConexion, accionMeMandaronAlgo, accionSeDesconecto);
+                /* epoll_escucharGeneral esta implementada en socket.c */
+        }
+        return 1;
+}
+/*---------------------- Termina el main -------------------------------------------*/
+
+/*---------------------- Comienza la declaracion de funciones ----------------------*/
+/* Nombre: crearOrquestador/1
+* Argumentos:
+*               - ruta(car *) (Puntero a la ruta de un config)
+* Devuelve:
+*               t_orquestador * (es un puntero a un orquestador creado)
+*/
+t_orquestador * crearOrquestador(char *ruta){
+        t_config *config = config_create(ruta);
+
+        t_orquestador * newOrquestador = malloc(sizeof(t_orquestador));
+
+        newOrquestador->listaDeNiveles = list_create();
+        newOrquestador->direccionIp = string_duplicate(config_get_string_value(config, "direccionIp"));
+        //newOrquestador->cantSegundosEspera = config_get_int_value(config, "cantSegundosEspera");
+        //newOrquestador->quantumGlobal = config_get_int_value(config, "quantumGlobal");
+
+        newOrquestador->cantPersonajesJugando = 0; //Contador que incrementa cuando entra a jugar un jugador nuevo, decrementa cuando el jugador termina el juego. Sirve para saber cuándo todos los personajes terminaron de jugar.
+        newOrquestador->fdOrquestadorServer = 0;
+        newOrquestador->rutaConfig = string_duplicate(ruta);
+
+        /*inicializo el inotify
+        newOrquestador->inotifyFd = inotify_init();
+        if (newOrquestador->inotifyFd < 0) {
+                        log_error(loggerOrquestador, "Error en el inotify_init");
+                }
+        newOrquestador->inotifyWatch = inotify_add_watch(newOrquestador->inotifyFd, ORQ_RUTASINARCHIVO, IN_MODIFY);
+         */
+        config_destroy(config);
+        return newOrquestador;
+}
+
+/*--------------------------------- separador ----------------------------------*/
+/* Nombre: crearServidor/2
+* Argumentos:
+*               - ip (puntero tipo char) y puerto (int)
+* Devuelve:
+*               t_orquestador * (es un puntero a un orquestador creado)
+*/
+
+void crearServidor(char * ip, int puerto) {
+
+        int socket = socket_crearServidor(ip, puerto);
+        if (socket == -1) {
+                //log_error(loggerOrquestador, "Error al crear socket");
+                exit(1);
+        }
+
+        orquestador->fdOrquestadorServer = socket;
+
+
+
+/*TODO implementar despues*/
+        int fdEpoll = epoll_crear();
+        if (fdEpoll == -1) {
+                // log_error(loggerOrquestador, "Error al crear epoll");
+                printf("Error al crear epoll");
+                socket_cerrarConexion(orquestador->fdOrquestadorServer);
+                exit(1);
+        }
+
+        orquestador->fdOrquestadorEpoll = fdEpoll;
+
+        if ( epoll_agregarSocketServidor(orquestador->fdOrquestadorEpoll, orquestador->fdOrquestadorServer) == -1) {
+                printf("Error al agregar socket servidor a epoll");
+                //log_error(loggerOrquestador, "Error al agregar socket servidor a epoll");
+        }
+
+}
+
+/*--------------------------------- separador ----------------------------------*/
+
+void accionNuevaConexion(epoll_data_t epollData){
+        int fdNuevaConexion;
+        fdNuevaConexion = socket_aceptarCliente(orquestador->fdOrquestadorServer);
+        // log_trace(loggerOrquestador, "Agrego la nueva conexion al epoll"); TODO
+
+        if (epoll_agregarSocketCliente(orquestador->fdOrquestadorEpoll, fdNuevaConexion)== -1){
+                //      log_error(loggerOrquestador, "Error al agregar personaje o nivel al epoll"); TODO
+                printf("Error al agregar personaje o nivel al epoll");
+                return ;
+        }
+
+        t_tipoEstructura tipo;
+        void * estructura;
+
+        int recibio = socket_recibir(fdNuevaConexion, &tipo, &estructura);
+        if (!recibio) {
+                if (estructura != NULL)
+                        free(estructura);
+                // log_error(loggerOrquestador, "No recibi correctamente el envio del personaje o nivel");
+                printf ("No recibi correctamente el envio del personaje o nivel");
+                return ;
+        }
+
+        t_struct_datosNivel * estructuraDatosNivel;
+        t_referenciaNivel * referenciaNivel;
+        t_signal signal;
+        t_struct_nombreNivel* respuesta = malloc(sizeof(t_struct_nombreNivel));
+        t_struct_datosNivel* nivel= malloc(sizeof(t_struct_datosNivel));
+        char * esElNivel;
+        t_referenciaNivel* cosasDeNivel;
+
+
+        int nivelExiste = 0;
+        switch(tipo){
+                case D_STRUCT_DATOSNIVEL: // CUANDO SE CONECTA UN NIVEL
+
+                        estructuraDatosNivel = (t_struct_datosNivel *) estructura;
+                        printf ("Se conectó el %s, sus recursos son: %s  \n", estructuraDatosNivel->nombre, estructuraDatosNivel->recursos);
+                        referenciaNivel = crearReferenciaNivel(estructuraDatosNivel->nombre, orquestador->direccionIp, fdNuevaConexion, estructuraDatosNivel->recursos,estructuraDatosNivel->algoritmo,estructuraDatosNivel->quantum,estructuraDatosNivel->retardo);
+
+                        //TODO log_info(loggerOrquestador, "Recibi del nivel %s, direccion: %s y recursos: %s", estructuraDatosNivel->nombre, estructuraDatosNivel->direccion, estructuraDatosNivel->recursos);
+
+                        printf ("el valor del quantum es: %d, el del algoritmo: %s y el del retardo: %d\n",referenciaNivel->quantumGlobal,referenciaNivel->algoritmo,referenciaNivel->retardo);
+
+                        referenciaNivel->cerrarPlanificador = &cerrarPlanificadores; // PARA QUE ES ESTO?
+
+                        //CHEQUEO SI EL NIVEL QUE SE ESTA CONECTANDO YA EXISTE.
+                        nivelExiste = esteNivelExiste (orquestador->listaDeNiveles,referenciaNivel->nombre);
+
+                        printf ("el valor de la variable nivelExiste es: %d\n",nivelExiste);
+
+                        if (nivelExiste==1){
+                                                                                        printf("GUACHO ya existe este nivel!\n");
+                                                                                        // TODO HABLAR CON AGUS - DEFINIR EL SIGNAL QUE LE MANDA ORQUESTADOR CUANDO EL NIVEL EXISTE. by ALE
+                                                                                        /*
+                                                                                        int seEnvio = socket_enviar(fdNuevaConexion, D_STRUCT_NOMBRENIVEL , respuesta);
+                                                                                        while(!seEnvio) {
+                                                                                                        printf("No se pudo enviar la respuesta del nivel %s al personaje\n", respuesta->nombre);
+                                                                                                        //log_error(loggerOrquestador, "No se pudo enviar las direcciones del nivel %s al personaje", referenciaNivel->nombre);
+                                                                                        }*/
+                        }
+                        else                                {
+                                                                                        agregarNivelALista(referenciaNivel);
+                                                                                        printf ("El nivel fue agregado a la listaDeNiveles del orquestador. Cantidad de elementos en la listaDeNiveles: %d\n",orquestador->listaDeNiveles->elements_count);
+                                                                                        // CREO UN HILO PLANIFICADOR PARA EL NIVEL QUE SE CONECTÓ.
+                                                                                        crearHiloPlanificador(referenciaNivel);
+                        }
+                        //TODO log_info(loggerOrquestador, "Acabo de conectar al nivel %s", referenciaNivel->nombre);
+
+                        free(estructuraDatosNivel->nombre);
+                        free(estructuraDatosNivel->recursos);
+                        printf ("\n");
+
+                        break;
+
+                case D_STRUCT_SIGNAL: // CUANDO SE CONECTA UN PERSONAJE POR PRIMERA VEZ.
+
+                        signal = ((t_struct_signal*) estructura)->signal;
+                        switch(signal){
+                                case S_Personaje_Orquestador_EmpeceJuego: // PERSONAJE AVISA QUE COMIENZA EL JUEGO.
+                                        printf("Un personaje empezó el juego\n");
+                                        orquestador->cantPersonajesJugando++;
+                                        printf("Cantidad de personajes jugando: %d\n",orquestador->cantPersonajesJugando);
+                                        //log_info(loggerOrquestador, "Un personaje empezó el juego");
+                                        break;
+                                case S_Personaje_Orquestador_TermineJuego: //PERSONAJE AVISA QUE TERMINO EL JUEGO.
+                                        orquestador->cantPersonajesJugando--;
+                                        //log_info(loggerOrquestador, "Un personaje terminó el juego");
+//                                      if(orquestador->cantPersonajesJugando == 0){
+//                                              aCerrarTodasLasPorqueriasYLlamarAlMonstro();
+//                                      }
+
+                                        break;
+                                default:
+                                        printf("El personaje envió una señal incorrecta. La señal %c", signal);
+                                        //log_error(loggerOrquestador, "El personaje envió una señal incorrecta. La señal %c", signal);
+                                        free(estructura);
+                                        return ;
+                        }
+                        break;
+
+                        case D_STRUCT_DATONIVELYRECURSO:// PERSONAJE SE CONECTA CON EL PLAN DE NIVELES Y RECURSOS. (Orquestador verifica exitencia).
+
+                        // En caso de tratarse de una conexión de un Personaje, validará que el Nivel que está solicitando exista y
+                        // delegará la conexión al planificador correspondiente.
+                        nivel->nombre = ((t_struct_datosNivel* )estructura)->nombre;
+                        nivel->recursos = ((t_struct_datosNivel* )estructura)->recursos;
+                        printf("Nivel Recibido: %s\n",(char*)nivel->nombre);
+
+                        nivelExiste = esteNivelExiste (orquestador->listaDeNiveles,(char*)nivel->nombre);
+                        printf ("el valor de la variable nivelExiste es: %d\n",nivelExiste);
+                        printf ("Chequeando si existe %s con recursos %s\n",nivel->nombre,nivel->recursos);
+
+                        // TODO hacer un string compare de los recursos que me manda con estructuraDatosNivel->recursos
+                                                if (nivelExiste==0){
+                                                                printf ("ERROR: El personaje quiere jugar a un nivel que no fue creado!!\n");
+                                                                respuesta->nombre = "KO";
+                                                }
+                                                else
+                                                {
+                                                                printf ("El %s existe!, el objetivo del personaje es conseguir estos recursos: %s, CHEQUEANDO SI EXISTEN\n",nivel->nombre,nivel->recursos);
+                                                                respuesta->nombre = "OK";
+                                                }
+                        int seEnvio = socket_enviar(fdNuevaConexion, D_STRUCT_NOMBRENIVEL , respuesta);
+                        while(!seEnvio) {
+                                printf("No se pudo enviar la respuesta del nivel %s al personaje\n", respuesta->nombre);
+                                //log_error(loggerOrquestador, "No se pudo enviar las direcciones del nivel %s al personaje", referenciaNivel->nombre);
+                        }
+                                                //log_info(loggerOrquestador, "Direcciones enviadas al personaje.");
+
+                        //******************* Obtener fd de cada planificador requerido**************************
+
+                        /*
+                        nombreNivel = ((t_struct_string *) estructura)->string;
+                        referenciaNivel = getNivel(nombreNivel);
+                        //log_info(loggerOrquestador, "Un personaje me pidió las direcciones del nivel %s", referenciaNivel->nombre);
+                        t_struct_direcciones * direcciones = armarStructDirecciones(referenciaNivel->direccionPlanificador);
+                         */
+                        printf ("\n");
+                        break;
+
+
+                        case D_STRUCT_CONECTAME: //Se conectar un personaje y derivo a planificador TODO
+                                //Agrego el fd al epoll del planificador
+                                //Saco el fd de mi epoll.
+                                esElNivel = ((t_struct_nombreNivel*)estructura)->nombre;
+                                cosasDeNivel = getNivel(esElNivel);
+                                if (epoll_agregarSocketCliente(cosasDeNivel->fdPlanificadorEpoll, fdNuevaConexion)== -1){
+                                //      log_error(loggerOrquestador, "Error al agregar personaje o nivel al epoll"); TODO
+                                        printf("Error al agregar personaje o nivel al epoll");
+                                    return ;
+                                }
+                                printf("AGREGUE EL FD AL PLANI"); //TODO Terminar esto!
+                                sleep(1111000000);
+
+                        break;
+
+                               default:
+                        if (estructura != NULL){
+                                free(estructura);
+                        printf("No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        }
+                        printf("No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        //log_error(loggerOrquestador, "No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        return ;
+                        break;
+        }
+        free(nivel);
+        free(respuesta);
+        free(estructura);
+        return ;
+}
+
+
+/*--------------------------------- separador ----------------------------------*/
+void accionSeDesconecto(epoll_data_t epollData){
+        t_referenciaNivel * referenciaNivel = getNivelPorFd(epollData.fd);
+
+        if(referenciaNivel != NULL) { //si es null, significa que el que se desconecto fue un personaje => el orq no tiene que hacer nada.
+                eliminarNivelDeLista(referenciaNivel);
+        }
+}
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+void accionMeMandaronAlgo(epoll_data_t epollData){
+        int fdEmisor = epollData.fd;
+
+
+        /*if(fdEmisor == orquestador->inotifyFd)
+        {
+                //se modificó el archivo config.
+                manejarInotify();
+        } else {*/
+                //siempre el que me manda un mensaje es algun nivel. Obtengo su referencia:
+
+        t_tipoEstructura tipo;
+        void * estructura;
+        t_struct_simboloPersonaje * charSimboloPersonaje;
+        int recibio = socket_recibir(fdEmisor, &tipo, &estructura);
+                if (!recibio) {
+                        if (estructura != NULL)
+                                free(estructura);
+                        // log_error(loggerOrquestador, "No recibi correctamente el envio del personaje o nivel");
+                        printf ("No recibi correctamente el envio del personaje o nivel");
+                        return ;
+                }
+
+                t_struct_nombreNivel* respuesta = malloc(sizeof(t_struct_nombreNivel));
+                t_struct_datosNivel* nivel = malloc(sizeof(t_struct_datosNivel));
+                int nivelExiste = 0;
+//                int recursosExisten = 0;
+
+                switch(tipo){
+                case D_STRUCT_DATONIVELYRECURSO:        //se conecta personaje con una lista de niveles, para que el orq le devuelva la direccione del planificador de el/los nivel/es en cuestion)
+
+                        // En caso de tratarse de una conexión de un Personaje, validará que el Nivel que está solicitando exista y
+                        // delegará la conexión al planificador correspondiente.
+                                                nivel->nombre = ((t_struct_datosNivel* )estructura)->nombre;
+                                                nivel->recursos = ((t_struct_datosNivel* )estructura)->recursos;
+                                                printf("Nivel Recibido: %s\n",(char*)nivel->nombre);
+
+                                                nivelExiste = esteNivelExiste (orquestador->listaDeNiveles,(char*)nivel->nombre);
+                                                printf ("el valor de la variable nivelExiste es: %d\n",nivelExiste);
+                                                printf ("Chequeando si existe %s con recursos %s\n",nivel->nombre,nivel->recursos);
+
+
+                                                // TODO hacer un string compare de los recursos que me manda con estructuraDatosNivel->recursos
+                                                if (nivelExiste==0){
+                                                                printf ("ERROR: El personaje quiere jugar a un nivel que no fue creado!!\n");
+                                                                respuesta->nombre = "KO";
+                                                }
+                                                else
+                                                {
+                                                                printf ("El %s existe!, el objetivo del personaje es conseguir estos recursos: %s, CHEQUEANDO SI EXISTEN\n",nivel->nombre,nivel->recursos);
+//TODO terminar la funcion         estosRecursosExisten                recursosExisten = estosRecursosExisten(orquestador->listaDeNiveles,nivel->nombre,nivel->recursos);
+                                                                respuesta->nombre = "OK";
+                                                }
+                                                int seEnvio = socket_enviar(fdEmisor, D_STRUCT_NOMBRENIVEL , respuesta);
+                                                while(!seEnvio) {
+                                                                printf("No se pudo enviar la respuesta del nivel %s al personaje\n", respuesta->nombre);
+                                                                //log_error(loggerOrquestador, "No se pudo enviar las direcciones del nivel %s al personaje", referenciaNivel->nombre);
+                                                }
+                                                printf ("\n");
+
+                        break;
+
+                /* TODO!!!!!!
+                case D_STRUCT_SIMBOLOPERSONAJE:
+                        charSimboloPersonaje = ((t_struct_simboloPersonaje*)estructura)->simbolo;
+                        break;
+                                */
+                default:
+                        if (estructura != NULL){
+                                free(estructura);
+                        printf("No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        }
+                        printf("No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        //log_error(loggerOrquestador, "No recibi una estructura de esperada... recibi el tipo: %i", tipo);
+                        return ;
+                        break;
+
+                        free(nivel);
+                        free(respuesta);
+        }
+
+
+
+        /*
+        t_referenciaNivel * nivel = getNivelPorFd(fdEmisor);
+
+                if(nivel != NULL) {
+                        recibiMensajeDeNivel(nivel);
+                } else {
+                        //log_error(loggerOrquestador,"El emisor no fue un nivel, o no pertenece a la lista de niveles. El fd es: %d", fdEmisor);
+
+                        //TODO
+                }
+        */
+
+}
+
+
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+void agregarNivelALista(t_referenciaNivel * referenciaNivel){
+        pthread_mutex_lock(&referenciaNivel->semaforoListos);
+                list_add(orquestador->listaDeNiveles, referenciaNivel);
+                //log_trace(loggerOrquestador, "Se agregó al nivel %s a la lista de niveles.", referenciaNivel->nombre);
+        pthread_mutex_unlock(&referenciaNivel->semaforoListos);
+}
+
+
+/*--------------------------------- separador ----------------------------------*/
+
+void crearHiloPlanificador(t_referenciaNivel * referenciaNivel){
+        pthread_t thrPlanificador;
+        pthread_create(&thrPlanificador, NULL, mainPlanificador, (void *) referenciaNivel);
+        // log_info(loggerOrquestador, "Hilo planificador del nivel %s creado", referenciaNivel->nombre);
+        referenciaNivel->threadPlanificador = thrPlanificador;
+}
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+t_struct_direcciones * armarStructDirecciones(char * dirPlanificador){
+        t_struct_direcciones * structDirecciones = malloc(strlen(dirPlanificador)+1);
+
+        structDirecciones->direccionPlanificador = string_duplicate(dirPlanificador);
+
+        return structDirecciones;
+}
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+t_referenciaNivel * getNivelPorFd(int fd){
+        _Bool esNivelIgual(void * element){
+                t_referenciaNivel* nivelDeLista = (t_referenciaNivel*) element;
+                return (nivelDeLista->fd == fd);
+        }
+
+        return (t_referenciaNivel*) list_find(orquestador->listaDeNiveles, esNivelIgual);
+}
+
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+void eliminarNivelDeLista(t_referenciaNivel * referenciaNivel){
+        _Bool esElMismoNivel(void * elemento){
+                return (referenciaNivel == elemento);
+        }
+        pthread_mutex_lock(&referenciaNivel->semaforoListos);
+                int index = list_get_index(orquestador->listaDeNiveles, esElMismoNivel);
+                list_remove(orquestador->listaDeNiveles, index);
+        pthread_mutex_unlock(&referenciaNivel->semaforoListos);
+        pthread_cancel(referenciaNivel->threadPlanificador);
+        destruirReferenciaNivel(referenciaNivel);
+}
+
+/*--------------------------------- separador ----------------------------------*/
+/*
+ * @NAME: esteNivelExiste
+ * @DESC: Verifica si un nivel existe.
+ * @CREATED BY: ALE - 06Noviembre2013
+ */
+
+int esteNivelExiste (t_list *self,char * nombreNivel){
+        int c;
+        int nivelExiste = 0;
+        t_link_element * aux;
+        aux = self->head;
+for (c = 0;c<self->elements_count;c++){
+        if(string_equals_ignore_case(((t_referenciaNivel *)self->head->data)->nombre,nombreNivel)){
+                        nivelExiste = 1;
+                c = self->elements_count;
+        }
+        self->head =  self->head->next;
+}
+self->head = aux;
+
+return nivelExiste;
+}
+
+/*--------------------------------- separador ----------------------------------*/
+/*
+ * @NAME: esteRecursosExisten
+ * @DESC: Te dice si los recursos existen en el nivel.
+ * @CREATED BY: ALE - 06Noviembre2013
+ */
+//int estosRecursosExisten (t_list *self,char * nombreNivel,char * recursos){
+//        int c;
+//        int existen = 0;
+//        t_link_element * aux;
+//        aux = self->head;
+//        for (c = 0;c<self->elements_count;c++){
+//                if(string_equals_ignore_case(((t_referenciaNivel *)self->head->data)->nombre,nombreNivel)){
+//                                if (string_equals_ignore_case(((t_referenciaNivel *)self->head->data)->recursos,recursos)){
+//                                        existen = 1;
+//                                }
+//                                c = self->elements_count;
+//                }
+//                self->head =  self->head->next;
+//        }
+//        self->head = aux;
+//
+//        return existen;
+//
+//}
+
+
+/*--------------------------------- separador ----------------------------------*/
+
+
+void recibiMensajeDeNivel (t_referenciaNivel * nivel){
+        t_tipoEstructura tipo;
+        void * estructura;
+        int recibio = socket_recibir(nivel->fd, &tipo, &estructura);
+        if(!recibio){
+                printf("No se recibio correctamente el mensaje del nivel");
+                //log_error(loggerOrquestador,"No se recibio correctamente el mensaje del nivel");
+                free(estructura);
+                return;
+        }
+
+        /*
+        char * personajesInterbloqueados = string_new();
+        char * recursosLiberados = string_new();
+
+        switch(tipo){
+                case D_STRUCT_PERSONAJESINTERBLOQUEADOS:
+                        string_append(&personajesInterbloqueados, ((t_struct_personajesInterbloqueados*) estructura)->simbolosPersonajes);
+                        free( ((t_struct_personajesInterbloqueados*) estructura)->simbolosPersonajes);
+                        log_info(loggerOrquestador, "El nivel %s me mandó personajes interbloqueados. Son: %s", nivel->nombre, personajesInterbloqueados);
+                        obtenerYEnviar_PersonajeQueMuere(personajesInterbloqueados, nivel);
+                break;
+
+                case D_STRUCT_RECURSOSLIBERADOS: //Estructura de tipo string, ejemplo: "FFMHH"
+                        string_append(&recursosLiberados, ((t_struct_recursosLiberados*) estructura)->recursosLiberados);
+                        free(((t_struct_recursosLiberados*) estructura)->recursosLiberados);
+                        log_info(loggerOrquestador, "El nivel %s me mandó recursos que se liberaron: %s", nivel->nombre, recursosLiberados);
+                        obtenerYEnviar_RecursosAsignadosYSobrantes(recursosLiberados, nivel);
+                break;
+                default:
+                        log_error(loggerOrquestador, "El nivel envió una estructura de tipo incorrecto. Recibi el tipo %i", tipo);
+                        break;
+
+        }
+*/
+        free(estructura);
+}

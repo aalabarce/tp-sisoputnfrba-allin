@@ -1,0 +1,836 @@
+[INFO] 11:21:45:758 Julia +/(2675:2675): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:21:45:766 Julia +/(2675:2675): Signal de comienzo de juego enviado
+[INFO] 11:21:45:767 Julia +/(2675:2675): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:21:45:767 Julia +/(2675:2675): Se creo el cliente y se espera envio
+[INFO] 11:21:45:767 Julia +/(2675:2675): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:21:45:772 Julia +/(2675:2675): Resuesta recibida: OK
+[INFO] 11:21:45:773 Julia +/(2675:2675): Creando hilo personaje
+[INFO] 11:21:45:773 Julia +/(2675:2676): jugando nivel nivel1!
+[INFO] 11:21:45:773 Julia +/(2675:2676): Comunicandome con el orquestador
+[INFO] 11:21:45:773 Julia +/(2675:2676): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:21:45:773 Julia +/(2675:2676): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:21:45:773 Julia +/(2675:2676): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:21:45:773 Julia +/(2675:2676): Agregue el fd al epoll
+[TRACE] 11:21:45:800 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:800 Julia +/(2675:2676): El Nivel nivel1 me mando algo
+[INFO] 11:21:45:800 Julia +/(2675:2676): Recibi mensaje del planificador
+[INFO] 11:21:45:800 Julia +/(2675:2676): Recibi signal del planificador: '5'
+[INFO] 11:21:45:800 Julia +/(2675:2676): Pidiendo la posicion de un recurso
+[INFO] 11:21:45:800 Julia +/(2675:2676): Pido al nivel la posicion del recuro: H
+[INFO] 11:21:45:800 Julia +/(2675:2676): Envie el pedido del recurso H
+[INFO] 11:21:45:800 Julia +/(2675:2676): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:21:45:841 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:841 Julia +/(2675:2676): Cerró conexion el nivel nivel1
+[INFO] 11:21:45:841 Julia +/(2675:2676): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:21:45:841 Julia +/(2675:2676): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:21:45:843 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:843 Julia +/(2675:2676): El Nivel nivel1 me mando algo
+[INFO] 11:21:45:843 Julia +/(2675:2676): Recibi mensaje del planificador
+[INFO] 11:21:45:843 Julia +/(2675:2676): Recibi signal del planificador: '5'
+[INFO] 11:21:45:843 Julia +/(2675:2676): Pidiendo la posicion de un recurso
+[INFO] 11:21:45:843 Julia +/(2675:2676): Pido al nivel la posicion del recuro: H
+[INFO] 11:21:45:843 Julia +/(2675:2676): Envie el pedido del recurso H
+[INFO] 11:21:45:851 Julia +/(2675:2676): Me devolvio una senial
+[TRACE] 11:21:45:851 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:851 Julia +/(2675:2676): Cerró conexion el nivel nivel1
+[INFO] 11:21:45:851 Julia +/(2675:2676): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:21:45:852 Julia +/(2675:2676): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:21:45:853 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:853 Julia +/(2675:2676): El Nivel nivel1 me mando algo
+[INFO] 11:21:45:853 Julia +/(2675:2676): Recibi mensaje del planificador
+[INFO] 11:21:45:854 Julia +/(2675:2676): Recibi signal del planificador: '5'
+[INFO] 11:21:45:854 Julia +/(2675:2676): Pidiendo la posicion de un recurso
+[INFO] 11:21:45:854 Julia +/(2675:2676): Pido al nivel la posicion del recuro: H
+[INFO] 11:21:45:854 Julia +/(2675:2676): Envie el pedido del recurso H
+[INFO] 11:21:45:892 Julia +/(2675:2676): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:21:45:933 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:45:933 Julia +/(2675:2676): El Nivel nivel1 me mando algo
+[INFO] 11:21:45:933 Julia +/(2675:2676): Recibi mensaje del planificador
+[INFO] 11:21:45:933 Julia +/(2675:2676): Recibi signal del planificador: '5'
+[INFO] 11:21:45:933 Julia +/(2675:2676): Llegue a la logica para moverme
+[INFO] 11:21:45:933 Julia +/(2675:2676): Moviendo al personaje
+[INFO] 11:21:45:933 Julia +/(2675:2676): Me quiero mover a la posicion: (7;4)
+[INFO] 11:21:45:933 Julia +/(2675:2676): Me movi a la posicion: (1;2)
+[INFO] 11:21:45:934 Julia +/(2675:2676): Le envio las posiciones al planificador (1,2)
+[INFO] 11:21:46:155 Julia +/(2675:2676): TIPO DE SEÑAL: 20
+[INFO] 11:21:46:155 Julia +/(2675:2676): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:21:46:193 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:46:193 Julia +/(2675:2676): El Nivel nivel1 me mando algo
+[INFO] 11:21:46:193 Julia +/(2675:2676): Recibi mensaje del planificador
+[INFO] 11:21:46:193 Julia +/(2675:2676): Recibi signal del planificador: '5'
+[INFO] 11:21:46:193 Julia +/(2675:2676): Llegue a la logica para moverme
+[INFO] 11:21:46:193 Julia +/(2675:2676): Moviendo al personaje
+[INFO] 11:21:46:193 Julia +/(2675:2676): Me quiero mover a la posicion: (7;4)
+[INFO] 11:21:46:193 Julia +/(2675:2676): Me movi a la posicion: (2;2)
+[INFO] 11:21:46:193 Julia +/(2675:2676): Le envio las posiciones al planificador (2,2)
+[INFO] 11:21:46:195 Julia +/(2675:2676): TIPO DE SEÑAL: 88
+[INFO] 11:21:46:195 Julia +/(2675:2676): Recibi una estructura del tipo 88 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:21:46:195 Julia +/(2675:2676): Cambio de nivel
+[INFO] 11:21:46:195 Julia +/(2675:2676): Cerró conexion el nivel nivel1
+[INFO] 11:21:46:195 Julia +/(2675:2676): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[ERROR] 11:21:46:195 Julia +/(2675:2676): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:21:46:195 Julia +/(2675:2676): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:21:46:196 Julia +/(2675:2676): No se envio el aviso al orquestador que termine el juego...
+[INFO] 11:23:40:511 Julia +/(2739:2739): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:23:40:514 Julia +/(2739:2739): Signal de comienzo de juego enviado
+[INFO] 11:23:40:517 Julia +/(2739:2739): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:23:40:517 Julia +/(2739:2739): Se creo el cliente y se espera envio
+[INFO] 11:23:40:517 Julia +/(2739:2739): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:23:40:518 Julia +/(2739:2739): Resuesta recibida: OK
+[INFO] 11:23:40:518 Julia +/(2739:2739): Creando hilo personaje
+[INFO] 11:23:40:519 Julia +/(2739:2740): jugando nivel nivel1!
+[INFO] 11:23:40:521 Julia +/(2739:2740): Comunicandome con el orquestador
+[INFO] 11:23:40:522 Julia +/(2739:2740): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:23:40:522 Julia +/(2739:2740): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:23:40:522 Julia +/(2739:2740): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:23:40:522 Julia +/(2739:2740): Agregue el fd al epoll
+[TRACE] 11:23:40:526 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:526 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:526 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:526 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:526 Julia +/(2739:2740): Pidiendo la posicion de un recurso
+[INFO] 11:23:40:526 Julia +/(2739:2740): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:40:526 Julia +/(2739:2740): Envie el pedido del recurso H
+[INFO] 11:23:40:526 Julia +/(2739:2740): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:23:40:568 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:568 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:568 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:568 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:568 Julia +/(2739:2740): Llegue a la logica para moverme
+[INFO] 11:23:40:568 Julia +/(2739:2740): Moviendo al personaje
+[INFO] 11:23:40:568 Julia +/(2739:2740): Me quiero mover a la posicion: (7;4)
+[INFO] 11:23:40:568 Julia +/(2739:2740): Me movi a la posicion: (1;2)
+[INFO] 11:23:40:569 Julia +/(2739:2740): Le envio las posiciones al planificador (1,2)
+[INFO] 11:23:40:569 Julia +/(2739:2740): TIPO DE SEÑAL: 20
+[INFO] 11:23:40:569 Julia +/(2739:2740): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:23:40:608 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:608 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:608 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:608 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:608 Julia +/(2739:2740): Llegue a la logica para moverme
+[INFO] 11:23:40:608 Julia +/(2739:2740): Moviendo al personaje
+[INFO] 11:23:40:608 Julia +/(2739:2740): Me quiero mover a la posicion: (7;4)
+[INFO] 11:23:40:608 Julia +/(2739:2740): Me movi a la posicion: (2;2)
+[INFO] 11:23:40:608 Julia +/(2739:2740): Le envio las posiciones al planificador (2,2)
+[INFO] 11:23:40:613 Julia +/(2739:2740): TIPO DE SEÑAL: 20
+[INFO] 11:23:40:613 Julia +/(2739:2740): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:23:40:613 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:613 Julia +/(2739:2740): Cerró conexion el nivel nivel1
+[INFO] 11:23:40:613 Julia +/(2739:2740): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:23:40:613 Julia +/(2739:2740): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:40:618 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:618 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:618 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:618 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:618 Julia +/(2739:2740): Pidiendo la posicion de un recurso
+[INFO] 11:23:40:618 Julia +/(2739:2740): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:40:618 Julia +/(2739:2740): Envie el pedido del recurso H
+[INFO] 11:23:40:649 Julia +/(2739:2740): Me devolvio una senial
+[TRACE] 11:23:40:649 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:649 Julia +/(2739:2740): Cerró conexion el nivel nivel1
+[INFO] 11:23:40:649 Julia +/(2739:2740): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:23:40:649 Julia +/(2739:2740): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:40:659 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:659 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:659 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:659 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:659 Julia +/(2739:2740): Pidiendo la posicion de un recurso
+[INFO] 11:23:40:659 Julia +/(2739:2740): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:40:659 Julia +/(2739:2740): Envie el pedido del recurso H
+[INFO] 11:23:40:681 Julia +/(2739:2740): Me devolvio una senial
+[TRACE] 11:23:40:681 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:681 Julia +/(2739:2740): Cerró conexion el nivel nivel1
+[INFO] 11:23:40:681 Julia +/(2739:2740): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[INFO] 11:23:40:681 Julia +/(2739:2740): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:40:690 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:690 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:690 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:691 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:691 Julia +/(2739:2740): Pidiendo la posicion de un recurso
+[INFO] 11:23:40:691 Julia +/(2739:2740): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:40:691 Julia +/(2739:2740): Envie el pedido del recurso H
+[INFO] 11:23:40:705 Julia +/(2739:2740): Me devolvio una senial
+[TRACE] 11:23:40:705 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:705 Julia +/(2739:2740): Cerró conexion el nivel nivel1
+[INFO] 11:23:40:705 Julia +/(2739:2740): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 1
+[INFO] 11:23:40:705 Julia +/(2739:2740): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:40:717 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:717 Julia +/(2739:2740): El Nivel nivel1 me mando algo
+[INFO] 11:23:40:717 Julia +/(2739:2740): Recibi mensaje del planificador
+[INFO] 11:23:40:717 Julia +/(2739:2740): Recibi signal del planificador: '5'
+[INFO] 11:23:40:717 Julia +/(2739:2740): Pidiendo la posicion de un recurso
+[INFO] 11:23:40:717 Julia +/(2739:2740): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:40:717 Julia +/(2739:2740): Envie el pedido del recurso H
+[INFO] 11:23:40:733 Julia +/(2739:2740): Me devolvio una senial
+[TRACE] 11:23:40:733 Julia +/(2739:2740): Cambio de nivel
+[INFO] 11:23:40:733 Julia +/(2739:2740): Cerró conexion el nivel nivel1
+[INFO] 11:23:40:733 Julia +/(2739:2740): Aviso a orquestador que termine el juego MAL (nada grave)
+[INFO] 11:23:40:733 Julia +/(2739:2740): Cierro conexion con el orquestador
+[INFO] 11:23:40:733 Julia +/(2739:2739): Se te acabaron las vidas, queres volver a jugar?(Y/N)
+[INFO] 11:23:47:167 Julia +/(2739:2739): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:23:47:167 Julia +/(2739:2739): Aviso a orquestador que termine el juego
+[INFO] 11:23:47:168 Julia +/(2739:2739): Cierro conexion con el orquestador
+[INFO] 11:23:47:168 Julia +/(2739:2739): El personaje se esta destruyendo!
+[INFO] 11:23:47:168 Julia +/(2739:2739): No quisiste volver a jugar, mal por vos
+[INFO] 11:23:54:385 Julia +/(2758:2758): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:23:54:392 Julia +/(2758:2758): Signal de comienzo de juego enviado
+[INFO] 11:23:54:393 Julia +/(2758:2758): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:23:54:393 Julia +/(2758:2758): Se creo el cliente y se espera envio
+[INFO] 11:23:54:395 Julia +/(2758:2758): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:23:54:397 Julia +/(2758:2758): Resuesta recibida: OK
+[INFO] 11:23:54:398 Julia +/(2758:2758): Creando hilo personaje
+[INFO] 11:23:54:398 Julia +/(2758:2759): jugando nivel nivel1!
+[INFO] 11:23:54:399 Julia +/(2758:2759): Comunicandome con el orquestador
+[INFO] 11:23:54:401 Julia +/(2758:2759): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:23:54:401 Julia +/(2758:2759): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:23:54:401 Julia +/(2758:2759): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:23:54:402 Julia +/(2758:2759): Agregue el fd al epoll
+[TRACE] 11:23:54:412 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:412 Julia +/(2758:2759): El Nivel nivel1 me mando algo
+[INFO] 11:23:54:412 Julia +/(2758:2759): Recibi mensaje del planificador
+[INFO] 11:23:54:412 Julia +/(2758:2759): Recibi signal del planificador: '5'
+[INFO] 11:23:54:412 Julia +/(2758:2759): Pidiendo la posicion de un recurso
+[INFO] 11:23:54:412 Julia +/(2758:2759): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:54:412 Julia +/(2758:2759): Envie el pedido del recurso H
+[INFO] 11:23:54:412 Julia +/(2758:2759): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:23:54:441 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:441 Julia +/(2758:2759): Cerró conexion el nivel nivel1
+[INFO] 11:23:54:441 Julia +/(2758:2759): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:23:54:441 Julia +/(2758:2759): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:54:452 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:452 Julia +/(2758:2759): El Nivel nivel1 me mando algo
+[INFO] 11:23:54:452 Julia +/(2758:2759): Recibi mensaje del planificador
+[INFO] 11:23:54:452 Julia +/(2758:2759): Recibi signal del planificador: '5'
+[INFO] 11:23:54:452 Julia +/(2758:2759): Pidiendo la posicion de un recurso
+[INFO] 11:23:54:452 Julia +/(2758:2759): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:54:452 Julia +/(2758:2759): Envie el pedido del recurso H
+[INFO] 11:23:54:464 Julia +/(2758:2759): Me devolvio una senial
+[TRACE] 11:23:54:464 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:464 Julia +/(2758:2759): Cerró conexion el nivel nivel1
+[INFO] 11:23:54:464 Julia +/(2758:2759): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:23:54:464 Julia +/(2758:2759): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:54:468 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:468 Julia +/(2758:2759): El Nivel nivel1 me mando algo
+[INFO] 11:23:54:468 Julia +/(2758:2759): Recibi mensaje del planificador
+[INFO] 11:23:54:468 Julia +/(2758:2759): Recibi signal del planificador: '5'
+[INFO] 11:23:54:468 Julia +/(2758:2759): Pidiendo la posicion de un recurso
+[INFO] 11:23:54:468 Julia +/(2758:2759): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:54:468 Julia +/(2758:2759): Envie el pedido del recurso H
+[INFO] 11:23:54:470 Julia +/(2758:2759): Me devolvio una senial
+[TRACE] 11:23:54:470 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:470 Julia +/(2758:2759): Cerró conexion el nivel nivel1
+[INFO] 11:23:54:470 Julia +/(2758:2759): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[INFO] 11:23:54:470 Julia +/(2758:2759): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:23:54:471 Julia +/(2758:2759): Cambio de nivel
+[INFO] 11:23:54:471 Julia +/(2758:2759): El Nivel nivel1 me mando algo
+[INFO] 11:23:54:471 Julia +/(2758:2759): Recibi mensaje del planificador
+[INFO] 11:23:54:471 Julia +/(2758:2759): Recibi signal del planificador: '5'
+[INFO] 11:23:54:471 Julia +/(2758:2759): Pidiendo la posicion de un recurso
+[INFO] 11:23:54:471 Julia +/(2758:2759): Pido al nivel la posicion del recuro: H
+[INFO] 11:23:54:471 Julia +/(2758:2759): Envie el pedido del recurso H
+[INFO] 11:23:54:856 Julia +/(2758:2759): Me devolvio una senial
+[ERROR] 11:23:54:856 Julia +/(2758:2759): Recibio mal el tipo. Se esperaba '6' y recibio '5'
+[INFO] 11:23:54:856 Julia +/(2758:2759): Aviso a orquestador que termine el juego MAL (nada grave)
+[INFO] 11:23:54:856 Julia +/(2758:2759): Cierro conexion con el orquestador
+[INFO] 11:23:54:856 Julia +/(2758:2759): El personaje se esta destruyendo!
+[TRACE] 11:23:54:856 Julia +/(2758:2759): Destruyo nivel nivel1
+[ERROR] 11:23:54:856 Julia +/(2758:2759): Terminaste de jugar! CON ERRORES! (Alguna cagada te mandaste, pero la pudiste zafar)
+[INFO] 11:28:30:608 Julia +/(2779:2779): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:28:30:612 Julia +/(2779:2779): Signal de comienzo de juego enviado
+[INFO] 11:28:30:618 Julia +/(2779:2779): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:28:30:619 Julia +/(2779:2779): Se creo el cliente y se espera envio
+[INFO] 11:28:30:619 Julia +/(2779:2779): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:28:30:624 Julia +/(2779:2779): Resuesta recibida: OK
+[INFO] 11:28:30:624 Julia +/(2779:2779): Creando hilo personaje
+[INFO] 11:28:30:625 Julia +/(2779:2780): jugando nivel nivel1!
+[INFO] 11:28:30:625 Julia +/(2779:2780): Comunicandome con el orquestador
+[INFO] 11:28:30:625 Julia +/(2779:2780): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:28:30:626 Julia +/(2779:2780): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:28:30:626 Julia +/(2779:2780): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:28:30:628 Julia +/(2779:2780): Agregue el fd al epoll
+[TRACE] 11:28:30:637 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:637 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:30:637 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:30:637 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:30:637 Julia +/(2779:2780): Pidiendo la posicion de un recurso
+[INFO] 11:28:30:637 Julia +/(2779:2780): Pido al nivel la posicion del recuro: H
+[INFO] 11:28:30:637 Julia +/(2779:2780): Envie el pedido del recurso H
+[INFO] 11:28:30:638 Julia +/(2779:2780): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:28:30:676 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:676 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:30:676 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:30:676 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:30:676 Julia +/(2779:2780): Llegue a la logica para moverme
+[INFO] 11:28:30:676 Julia +/(2779:2780): Moviendo al personaje
+[INFO] 11:28:30:676 Julia +/(2779:2780): Me quiero mover a la posicion: (7;4)
+[INFO] 11:28:30:676 Julia +/(2779:2780): Me movi a la posicion: (1;2)
+[INFO] 11:28:30:676 Julia +/(2779:2780): Le envio las posiciones al planificador (1,2)
+[INFO] 11:28:30:677 Julia +/(2779:2780): TIPO DE SEÑAL: 20
+[INFO] 11:28:30:677 Julia +/(2779:2780): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:28:30:689 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:689 Julia +/(2779:2780): Cerró conexion el nivel nivel1
+[INFO] 11:28:30:689 Julia +/(2779:2780): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:28:30:689 Julia +/(2779:2780): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:28:30:698 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:698 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:30:698 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:30:698 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:30:698 Julia +/(2779:2780): Pidiendo la posicion de un recurso
+[INFO] 11:28:30:698 Julia +/(2779:2780): Pido al nivel la posicion del recuro: H
+[INFO] 11:28:30:698 Julia +/(2779:2780): Envie el pedido del recurso H
+[INFO] 11:28:30:704 Julia +/(2779:2780): Me devolvio una senial
+[TRACE] 11:28:30:704 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:704 Julia +/(2779:2780): Cerró conexion el nivel nivel1
+[INFO] 11:28:30:704 Julia +/(2779:2780): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:28:30:704 Julia +/(2779:2780): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:28:30:705 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:705 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:30:705 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:30:705 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:30:705 Julia +/(2779:2780): Pidiendo la posicion de un recurso
+[INFO] 11:28:30:705 Julia +/(2779:2780): Pido al nivel la posicion del recuro: H
+[INFO] 11:28:30:705 Julia +/(2779:2780): Envie el pedido del recurso H
+[INFO] 11:28:30:712 Julia +/(2779:2780): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:28:30:753 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:30:753 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:30:753 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:30:753 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:30:753 Julia +/(2779:2780): Llegue a la logica para moverme
+[INFO] 11:28:30:753 Julia +/(2779:2780): Moviendo al personaje
+[INFO] 11:28:30:753 Julia +/(2779:2780): Me quiero mover a la posicion: (7;4)
+[INFO] 11:28:30:754 Julia +/(2779:2780): Me movi a la posicion: (2;1)
+[INFO] 11:28:30:754 Julia +/(2779:2780): Le envio las posiciones al planificador (2,1)
+[INFO] 11:28:31:21 Julia +/(2779:2780): TIPO DE SEÑAL: 20
+[INFO] 11:28:31:21 Julia +/(2779:2780): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:28:31:62 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:31:62 Julia +/(2779:2780): El Nivel nivel1 me mando algo
+[INFO] 11:28:31:62 Julia +/(2779:2780): Recibi mensaje del planificador
+[INFO] 11:28:31:62 Julia +/(2779:2780): Recibi signal del planificador: '5'
+[INFO] 11:28:31:62 Julia +/(2779:2780): Llegue a la logica para moverme
+[INFO] 11:28:31:62 Julia +/(2779:2780): Moviendo al personaje
+[INFO] 11:28:31:62 Julia +/(2779:2780): Me quiero mover a la posicion: (7;4)
+[INFO] 11:28:31:62 Julia +/(2779:2780): Me movi a la posicion: (2;2)
+[INFO] 11:28:31:62 Julia +/(2779:2780): Le envio las posiciones al planificador (2,2)
+[INFO] 11:28:31:64 Julia +/(2779:2780): TIPO DE SEÑAL: 88
+[INFO] 11:28:31:64 Julia +/(2779:2780): Recibi una estructura del tipo 88 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:28:31:64 Julia +/(2779:2780): Cambio de nivel
+[INFO] 11:28:31:64 Julia +/(2779:2780): Cerró conexion el nivel nivel1
+[INFO] 11:28:31:64 Julia +/(2779:2780): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[ERROR] 11:28:31:64 Julia +/(2779:2780): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:28:31:64 Julia +/(2779:2780): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:28:31:64 Julia +/(2779:2780): No se envio el aviso al orquestador que termine el juego...
+[INFO] 11:34:23:483 Julia +/(2856:2856): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:34:23:489 Julia +/(2856:2856): Signal de comienzo de juego enviado
+[INFO] 11:34:23:489 Julia +/(2856:2856): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:34:23:489 Julia +/(2856:2856): Se creo el cliente y se espera envio
+[INFO] 11:34:23:489 Julia +/(2856:2856): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:34:23:492 Julia +/(2856:2856): Resuesta recibida: OK
+[INFO] 11:34:23:492 Julia +/(2856:2856): Creando hilo personaje
+[INFO] 11:34:23:493 Julia +/(2856:2857): jugando nivel nivel1!
+[INFO] 11:34:23:493 Julia +/(2856:2857): Comunicandome con el orquestador
+[INFO] 11:34:23:497 Julia +/(2856:2857): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:34:23:497 Julia +/(2856:2857): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:34:23:498 Julia +/(2856:2857): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:34:23:498 Julia +/(2856:2857): Agregue el fd al epoll
+[TRACE] 11:34:23:514 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:514 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:514 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:514 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:514 Julia +/(2856:2857): Pidiendo la posicion de un recurso
+[INFO] 11:34:23:514 Julia +/(2856:2857): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:23:514 Julia +/(2856:2857): Envie el pedido del recurso H
+[INFO] 11:34:23:517 Julia +/(2856:2857): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:34:23:556 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:556 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:556 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:556 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:556 Julia +/(2856:2857): Llegue a la logica para moverme
+[INFO] 11:34:23:556 Julia +/(2856:2857): Moviendo al personaje
+[INFO] 11:34:23:556 Julia +/(2856:2857): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:23:556 Julia +/(2856:2857): Me movi a la posicion: (1;2)
+[INFO] 11:34:23:557 Julia +/(2856:2857): Le envio las posiciones al planificador (1,2)
+[INFO] 11:34:23:558 Julia +/(2856:2857): TIPO DE SEÑAL: 20
+[INFO] 11:34:23:558 Julia +/(2856:2857): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:34:23:564 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:564 Julia +/(2856:2857): Cerró conexion el nivel nivel1
+[INFO] 11:34:23:564 Julia +/(2856:2857): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:34:23:564 Julia +/(2856:2857): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:34:23:565 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:565 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:565 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:565 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:565 Julia +/(2856:2857): Pidiendo la posicion de un recurso
+[INFO] 11:34:23:565 Julia +/(2856:2857): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:23:565 Julia +/(2856:2857): Envie el pedido del recurso H
+[INFO] 11:34:23:577 Julia +/(2856:2857): Me devolvio una senial
+[TRACE] 11:34:23:577 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:577 Julia +/(2856:2857): Cerró conexion el nivel nivel1
+[INFO] 11:34:23:577 Julia +/(2856:2857): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:34:23:577 Julia +/(2856:2857): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:34:23:583 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:583 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:583 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:583 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:583 Julia +/(2856:2857): Pidiendo la posicion de un recurso
+[INFO] 11:34:23:583 Julia +/(2856:2857): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:23:583 Julia +/(2856:2857): Envie el pedido del recurso H
+[INFO] 11:34:23:599 Julia +/(2856:2857): Me devolvio una senial
+[TRACE] 11:34:23:599 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:599 Julia +/(2856:2857): Cerró conexion el nivel nivel1
+[INFO] 11:34:23:599 Julia +/(2856:2857): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[INFO] 11:34:23:599 Julia +/(2856:2857): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:34:23:600 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:600 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:600 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:600 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:600 Julia +/(2856:2857): Pidiendo la posicion de un recurso
+[INFO] 11:34:23:600 Julia +/(2856:2857): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:23:600 Julia +/(2856:2857): Envie el pedido del recurso H
+[INFO] 11:34:23:637 Julia +/(2856:2857): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:34:23:677 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:677 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:677 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:677 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:677 Julia +/(2856:2857): Llegue a la logica para moverme
+[INFO] 11:34:23:677 Julia +/(2856:2857): Moviendo al personaje
+[INFO] 11:34:23:677 Julia +/(2856:2857): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:23:677 Julia +/(2856:2857): Me movi a la posicion: (2;1)
+[INFO] 11:34:23:678 Julia +/(2856:2857): Le envio las posiciones al planificador (2,1)
+[INFO] 11:34:23:920 Julia +/(2856:2857): TIPO DE SEÑAL: 20
+[INFO] 11:34:23:920 Julia +/(2856:2857): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:34:23:956 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:957 Julia +/(2856:2857): El Nivel nivel1 me mando algo
+[INFO] 11:34:23:957 Julia +/(2856:2857): Recibi mensaje del planificador
+[INFO] 11:34:23:957 Julia +/(2856:2857): Recibi signal del planificador: '5'
+[INFO] 11:34:23:957 Julia +/(2856:2857): Llegue a la logica para moverme
+[INFO] 11:34:23:957 Julia +/(2856:2857): Moviendo al personaje
+[INFO] 11:34:23:957 Julia +/(2856:2857): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:23:957 Julia +/(2856:2857): Me movi a la posicion: (2;2)
+[INFO] 11:34:23:957 Julia +/(2856:2857): Le envio las posiciones al planificador (2,2)
+[INFO] 11:34:23:959 Julia +/(2856:2857): TIPO DE SEÑAL: 88
+[INFO] 11:34:23:959 Julia +/(2856:2857): Recibi una estructura del tipo 88 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:34:23:960 Julia +/(2856:2857): Cambio de nivel
+[INFO] 11:34:23:960 Julia +/(2856:2857): Cerró conexion el nivel nivel1
+[INFO] 11:34:23:960 Julia +/(2856:2857): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 1
+[ERROR] 11:34:23:960 Julia +/(2856:2857): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:34:23:960 Julia +/(2856:2857): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:34:23:960 Julia +/(2856:2857): No se envio el aviso al orquestador que termine el juego...
+[INFO] 11:34:33:644 Julia +/(2875:2875): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:34:33:650 Julia +/(2875:2875): Signal de comienzo de juego enviado
+[INFO] 11:34:33:651 Julia +/(2875:2875): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:34:33:651 Julia +/(2875:2875): Se creo el cliente y se espera envio
+[INFO] 11:34:33:652 Julia +/(2875:2875): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:34:33:658 Julia +/(2875:2875): Resuesta recibida: OK
+[INFO] 11:34:33:659 Julia +/(2875:2875): Creando hilo personaje
+[INFO] 11:34:33:659 Julia +/(2875:2876): jugando nivel nivel1!
+[INFO] 11:34:33:659 Julia +/(2875:2876): Comunicandome con el orquestador
+[INFO] 11:34:33:659 Julia +/(2875:2876): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:34:33:659 Julia +/(2875:2876): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:34:33:659 Julia +/(2875:2876): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:34:33:659 Julia +/(2875:2876): Agregue el fd al epoll
+[TRACE] 11:34:33:671 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:671 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:33:671 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:33:671 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:33:671 Julia +/(2875:2876): Pidiendo la posicion de un recurso
+[INFO] 11:34:33:671 Julia +/(2875:2876): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:33:671 Julia +/(2875:2876): Envie el pedido del recurso H
+[INFO] 11:34:33:672 Julia +/(2875:2876): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:34:33:713 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:713 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:33:713 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:33:713 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:33:713 Julia +/(2875:2876): Llegue a la logica para moverme
+[INFO] 11:34:33:713 Julia +/(2875:2876): Moviendo al personaje
+[INFO] 11:34:33:713 Julia +/(2875:2876): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:33:713 Julia +/(2875:2876): Me movi a la posicion: (1;2)
+[INFO] 11:34:33:713 Julia +/(2875:2876): Le envio las posiciones al planificador (1,2)
+[INFO] 11:34:33:722 Julia +/(2875:2876): TIPO DE SEÑAL: 20
+[INFO] 11:34:33:722 Julia +/(2875:2876): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:34:33:744 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:744 Julia +/(2875:2876): Cerró conexion el nivel nivel1
+[INFO] 11:34:33:744 Julia +/(2875:2876): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:34:33:744 Julia +/(2875:2876): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:34:33:745 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:745 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:33:745 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:33:745 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:33:745 Julia +/(2875:2876): Pidiendo la posicion de un recurso
+[INFO] 11:34:33:745 Julia +/(2875:2876): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:33:745 Julia +/(2875:2876): Envie el pedido del recurso H
+[INFO] 11:34:33:748 Julia +/(2875:2876): Me devolvio una senial
+[TRACE] 11:34:33:748 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:748 Julia +/(2875:2876): Cerró conexion el nivel nivel1
+[INFO] 11:34:33:748 Julia +/(2875:2876): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:34:33:748 Julia +/(2875:2876): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:34:33:749 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:749 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:33:749 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:33:749 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:33:749 Julia +/(2875:2876): Pidiendo la posicion de un recurso
+[INFO] 11:34:33:749 Julia +/(2875:2876): Pido al nivel la posicion del recuro: H
+[INFO] 11:34:33:749 Julia +/(2875:2876): Envie el pedido del recurso H
+[INFO] 11:34:33:791 Julia +/(2875:2876): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:34:33:829 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:33:829 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:33:829 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:33:829 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:33:829 Julia +/(2875:2876): Llegue a la logica para moverme
+[INFO] 11:34:33:829 Julia +/(2875:2876): Moviendo al personaje
+[INFO] 11:34:33:829 Julia +/(2875:2876): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:33:829 Julia +/(2875:2876): Me movi a la posicion: (2;1)
+[INFO] 11:34:33:830 Julia +/(2875:2876): Le envio las posiciones al planificador (2,1)
+[INFO] 11:34:34:343 Julia +/(2875:2876): TIPO DE SEÑAL: 20
+[INFO] 11:34:34:343 Julia +/(2875:2876): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:34:34:381 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:34:381 Julia +/(2875:2876): El Nivel nivel1 me mando algo
+[INFO] 11:34:34:381 Julia +/(2875:2876): Recibi mensaje del planificador
+[INFO] 11:34:34:381 Julia +/(2875:2876): Recibi signal del planificador: '5'
+[INFO] 11:34:34:381 Julia +/(2875:2876): Llegue a la logica para moverme
+[INFO] 11:34:34:381 Julia +/(2875:2876): Moviendo al personaje
+[INFO] 11:34:34:381 Julia +/(2875:2876): Me quiero mover a la posicion: (7;4)
+[INFO] 11:34:34:381 Julia +/(2875:2876): Me movi a la posicion: (2;2)
+[INFO] 11:34:34:381 Julia +/(2875:2876): Le envio las posiciones al planificador (2,2)
+[INFO] 11:34:34:383 Julia +/(2875:2876): TIPO DE SEÑAL: 88
+[INFO] 11:34:34:383 Julia +/(2875:2876): Recibi una estructura del tipo 88 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:34:34:383 Julia +/(2875:2876): Cambio de nivel
+[INFO] 11:34:34:383 Julia +/(2875:2876): Cerró conexion el nivel nivel1
+[INFO] 11:34:34:383 Julia +/(2875:2876): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[ERROR] 11:34:34:383 Julia +/(2875:2876): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:34:34:383 Julia +/(2875:2876): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:34:34:384 Julia +/(2875:2876): No se envio el aviso al orquestador que termine el juego...
+[INFO] 11:35:46:460 Julia +/(2928:2928): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:35:46:466 Julia +/(2928:2928): Signal de comienzo de juego enviado
+[INFO] 11:35:46:466 Julia +/(2928:2928): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:35:46:467 Julia +/(2928:2928): Se creo el cliente y se espera envio
+[INFO] 11:35:46:467 Julia +/(2928:2928): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:35:46:477 Julia +/(2928:2928): Resuesta recibida: OK
+[INFO] 11:35:46:477 Julia +/(2928:2928): Creando hilo personaje
+[INFO] 11:35:46:478 Julia +/(2928:2929): jugando nivel nivel1!
+[INFO] 11:35:46:478 Julia +/(2928:2929): Comunicandome con el orquestador
+[INFO] 11:35:46:478 Julia +/(2928:2929): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:35:46:478 Julia +/(2928:2929): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:35:46:478 Julia +/(2928:2929): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:35:46:478 Julia +/(2928:2929): Agregue el fd al epoll
+[TRACE] 11:35:46:483 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:483 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:483 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:483 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:483 Julia +/(2928:2929): Pidiendo la posicion de un recurso
+[INFO] 11:35:46:483 Julia +/(2928:2929): Pido al nivel la posicion del recuro: H
+[INFO] 11:35:46:483 Julia +/(2928:2929): Envie el pedido del recurso H
+[INFO] 11:35:46:483 Julia +/(2928:2929): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:35:46:522 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:522 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:522 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:523 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:523 Julia +/(2928:2929): Llegue a la logica para moverme
+[INFO] 11:35:46:523 Julia +/(2928:2929): Moviendo al personaje
+[INFO] 11:35:46:523 Julia +/(2928:2929): Me quiero mover a la posicion: (7;4)
+[INFO] 11:35:46:523 Julia +/(2928:2929): Me movi a la posicion: (1;2)
+[INFO] 11:35:46:523 Julia +/(2928:2929): Le envio las posiciones al planificador (1,2)
+[INFO] 11:35:46:524 Julia +/(2928:2929): TIPO DE SEÑAL: 20
+[INFO] 11:35:46:524 Julia +/(2928:2929): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:35:46:561 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:561 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:561 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:561 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:561 Julia +/(2928:2929): Llegue a la logica para moverme
+[INFO] 11:35:46:561 Julia +/(2928:2929): Moviendo al personaje
+[INFO] 11:35:46:561 Julia +/(2928:2929): Me quiero mover a la posicion: (7;4)
+[INFO] 11:35:46:561 Julia +/(2928:2929): Me movi a la posicion: (2;2)
+[INFO] 11:35:46:561 Julia +/(2928:2929): Le envio las posiciones al planificador (2,2)
+[INFO] 11:35:46:562 Julia +/(2928:2929): TIPO DE SEÑAL: 20
+[INFO] 11:35:46:562 Julia +/(2928:2929): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:35:46:569 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:569 Julia +/(2928:2929): Cerró conexion el nivel nivel1
+[INFO] 11:35:46:569 Julia +/(2928:2929): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:35:46:569 Julia +/(2928:2929): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:35:46:576 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:576 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:576 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:576 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:576 Julia +/(2928:2929): Pidiendo la posicion de un recurso
+[INFO] 11:35:46:576 Julia +/(2928:2929): Pido al nivel la posicion del recuro: H
+[INFO] 11:35:46:576 Julia +/(2928:2929): Envie el pedido del recurso H
+[INFO] 11:35:46:590 Julia +/(2928:2929): Me devolvio una senial
+[TRACE] 11:35:46:590 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:590 Julia +/(2928:2929): Cerró conexion el nivel nivel1
+[INFO] 11:35:46:590 Julia +/(2928:2929): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:35:46:590 Julia +/(2928:2929): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:35:46:591 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:591 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:591 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:591 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:591 Julia +/(2928:2929): Pidiendo la posicion de un recurso
+[INFO] 11:35:46:591 Julia +/(2928:2929): Pido al nivel la posicion del recuro: H
+[INFO] 11:35:46:591 Julia +/(2928:2929): Envie el pedido del recurso H
+[INFO] 11:35:46:629 Julia +/(2928:2929): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:35:46:668 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:668 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:668 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:668 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:668 Julia +/(2928:2929): Llegue a la logica para moverme
+[INFO] 11:35:46:669 Julia +/(2928:2929): Moviendo al personaje
+[INFO] 11:35:46:669 Julia +/(2928:2929): Me quiero mover a la posicion: (7;4)
+[INFO] 11:35:46:669 Julia +/(2928:2929): Me movi a la posicion: (1;2)
+[INFO] 11:35:46:669 Julia +/(2928:2929): Le envio las posiciones al planificador (1,2)
+[INFO] 11:35:46:935 Julia +/(2928:2929): TIPO DE SEÑAL: 20
+[INFO] 11:35:46:935 Julia +/(2928:2929): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:35:46:973 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:973 Julia +/(2928:2929): El Nivel nivel1 me mando algo
+[INFO] 11:35:46:973 Julia +/(2928:2929): Recibi mensaje del planificador
+[INFO] 11:35:46:973 Julia +/(2928:2929): Recibi signal del planificador: '5'
+[INFO] 11:35:46:973 Julia +/(2928:2929): Llegue a la logica para moverme
+[INFO] 11:35:46:973 Julia +/(2928:2929): Moviendo al personaje
+[INFO] 11:35:46:973 Julia +/(2928:2929): Me quiero mover a la posicion: (7;4)
+[INFO] 11:35:46:973 Julia +/(2928:2929): Me movi a la posicion: (2;2)
+[INFO] 11:35:46:973 Julia +/(2928:2929): Le envio las posiciones al planificador (2,2)
+[INFO] 11:35:46:975 Julia +/(2928:2929): TIPO DE SEÑAL: 120
+[INFO] 11:35:46:975 Julia +/(2928:2929): Recibi una estructura del tipo 120 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:35:46:975 Julia +/(2928:2929): Cambio de nivel
+[INFO] 11:35:46:975 Julia +/(2928:2929): Cerró conexion el nivel nivel1
+[INFO] 11:35:46:975 Julia +/(2928:2929): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[ERROR] 11:35:46:975 Julia +/(2928:2929): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:35:46:975 Julia +/(2928:2929): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:35:46:975 Julia +/(2928:2929): No se envio el aviso al orquestador que termine el juego...
+[INFO] 11:36:33:668 Julia +/(2957:2957): Me conecto al orquestador y le digo que inicio el juego
+[INFO] 11:36:33:674 Julia +/(2957:2957): Signal de comienzo de juego enviado
+[INFO] 11:36:33:674 Julia +/(2957:2957): Me conecto al orquestador IP: 127.0.0.1:5000, FD: 4
+[INFO] 11:36:33:675 Julia +/(2957:2957): Se creo el cliente y se espera envio
+[INFO] 11:36:33:677 Julia +/(2957:2957): Enviando datos nivel nivel1 y HCRMR
+[INFO] 11:36:33:683 Julia +/(2957:2957): Resuesta recibida: OK
+[INFO] 11:36:33:683 Julia +/(2957:2957): Creando hilo personaje
+[INFO] 11:36:33:684 Julia +/(2957:2958): jugando nivel nivel1!
+[INFO] 11:36:33:684 Julia +/(2957:2958): Comunicandome con el orquestador
+[INFO] 11:36:33:684 Julia +/(2957:2958): Me conecto al orquestador IP: 127.0.0.1:5000
+[INFO] 11:36:33:684 Julia +/(2957:2958): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[INFO] 11:36:33:684 Julia +/(2957:2958): Pido al orquestador que me conecte al plnificador del nivel: 'nivel1'
+[INFO] 11:36:33:684 Julia +/(2957:2958): Agregue el fd al epoll
+[TRACE] 11:36:33:686 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:687 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:687 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:687 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:687 Julia +/(2957:2958): Pidiendo la posicion de un recurso
+[INFO] 11:36:33:687 Julia +/(2957:2958): Pido al nivel la posicion del recuro: H
+[INFO] 11:36:33:687 Julia +/(2957:2958): Envie el pedido del recurso H
+[INFO] 11:36:33:693 Julia +/(2957:2958): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:36:33:732 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:732 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:732 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:732 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:733 Julia +/(2957:2958): Llegue a la logica para moverme
+[INFO] 11:36:33:733 Julia +/(2957:2958): Moviendo al personaje
+[INFO] 11:36:33:733 Julia +/(2957:2958): Me quiero mover a la posicion: (7;4)
+[INFO] 11:36:33:733 Julia +/(2957:2958): Me movi a la posicion: (1;2)
+[INFO] 11:36:33:733 Julia +/(2957:2958): Le envio las posiciones al planificador (1,2)
+[INFO] 11:36:33:733 Julia +/(2957:2958): TIPO DE SEÑAL: 20
+[INFO] 11:36:33:733 Julia +/(2957:2958): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:36:33:765 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:765 Julia +/(2957:2958): Cerró conexion el nivel nivel1
+[INFO] 11:36:33:765 Julia +/(2957:2958): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 4
+[INFO] 11:36:33:765 Julia +/(2957:2958): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:36:33:773 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:773 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:773 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:773 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:773 Julia +/(2957:2958): Pidiendo la posicion de un recurso
+[INFO] 11:36:33:773 Julia +/(2957:2958): Pido al nivel la posicion del recuro: H
+[INFO] 11:36:33:773 Julia +/(2957:2958): Envie el pedido del recurso H
+[INFO] 11:36:33:789 Julia +/(2957:2958): Me devolvio una senial
+[TRACE] 11:36:33:789 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:789 Julia +/(2957:2958): Cerró conexion el nivel nivel1
+[INFO] 11:36:33:789 Julia +/(2957:2958): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 3
+[INFO] 11:36:33:790 Julia +/(2957:2958): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:36:33:795 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:795 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:795 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:795 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:795 Julia +/(2957:2958): Pidiendo la posicion de un recurso
+[INFO] 11:36:33:795 Julia +/(2957:2958): Pido al nivel la posicion del recuro: H
+[INFO] 11:36:33:795 Julia +/(2957:2958): Envie el pedido del recurso H
+[INFO] 11:36:33:800 Julia +/(2957:2958): Me devolvio una senial
+[TRACE] 11:36:33:800 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:800 Julia +/(2957:2958): Cerró conexion el nivel nivel1
+[INFO] 11:36:33:800 Julia +/(2957:2958): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 2
+[INFO] 11:36:33:800 Julia +/(2957:2958): Se creo la comunicacion con el orquestador y se va a realizar el envio de paquetes
+[TRACE] 11:36:33:801 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:801 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:801 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:802 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:802 Julia +/(2957:2958): Pidiendo la posicion de un recurso
+[INFO] 11:36:33:802 Julia +/(2957:2958): Pido al nivel la posicion del recuro: H
+[INFO] 11:36:33:802 Julia +/(2957:2958): Envie el pedido del recurso H
+[INFO] 11:36:33:841 Julia +/(2957:2958): Me devolvio la posicion del recurso H es (7;4)
+[TRACE] 11:36:33:881 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:33:881 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:33:881 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:33:881 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:33:881 Julia +/(2957:2958): Llegue a la logica para moverme
+[INFO] 11:36:33:881 Julia +/(2957:2958): Moviendo al personaje
+[INFO] 11:36:33:881 Julia +/(2957:2958): Me quiero mover a la posicion: (7;4)
+[INFO] 11:36:33:881 Julia +/(2957:2958): Me movi a la posicion: (2;1)
+[INFO] 11:36:33:881 Julia +/(2957:2958): Le envio las posiciones al planificador (2,1)
+[INFO] 11:36:34:129 Julia +/(2957:2958): TIPO DE SEÑAL: 20
+[INFO] 11:36:34:129 Julia +/(2957:2958): Me confirmo el nivel que me movio correctamente
+[TRACE] 11:36:34:171 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:34:171 Julia +/(2957:2958): El Nivel nivel1 me mando algo
+[INFO] 11:36:34:171 Julia +/(2957:2958): Recibi mensaje del planificador
+[INFO] 11:36:34:171 Julia +/(2957:2958): Recibi signal del planificador: '5'
+[INFO] 11:36:34:171 Julia +/(2957:2958): Llegue a la logica para moverme
+[INFO] 11:36:34:171 Julia +/(2957:2958): Moviendo al personaje
+[INFO] 11:36:34:171 Julia +/(2957:2958): Me quiero mover a la posicion: (7;4)
+[INFO] 11:36:34:171 Julia +/(2957:2958): Me movi a la posicion: (2;2)
+[INFO] 11:36:34:173 Julia +/(2957:2958): Le envio las posiciones al planificador (2,2)
+[INFO] 11:36:34:173 Julia +/(2957:2958): TIPO DE SEÑAL: 88
+[INFO] 11:36:34:173 Julia +/(2957:2958): Recibi una estructura del tipo 88 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[TRACE] 11:36:34:173 Julia +/(2957:2958): Cambio de nivel
+[INFO] 11:36:34:173 Julia +/(2957:2958): Cerró conexion el nivel nivel1
+[INFO] 11:36:34:173 Julia +/(2957:2958): Reiniciando la conexion para el nivel 'nivel1'. Cantidad de vidas actual: 1
+[ERROR] 11:36:34:173 Julia +/(2957:2958): Errores al conectarse al orquestador IP: 127.0.0.1:5000
+[INFO] 11:36:34:174 Julia +/(2957:2958): Aviso a orquestador que termine el juego MAL (nada grave)
+[ERROR] 11:36:34:174 Julia +/(2957:2958): No se envio el aviso al orquestador que termine el juego...
